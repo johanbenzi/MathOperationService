@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.assertj.core.util.Preconditions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,6 +20,7 @@ import java.util.List;
 import java.util.Objects;
 
 @RestController
+@Tag(name = "MathOperationController", description = "Handles requests to perform various math operations")
 public class MathOperationController {
 
   @Autowired
@@ -26,7 +28,7 @@ public class MathOperationController {
 
   @GetMapping(path = "/min")
   @ResponseStatus(value = HttpStatus.OK)
-  @Operation(summary = "Find minimum value based on quantifier")
+  @Operation(summary = "Find minimum values based on quantifier")
   @ApiResponse(responseCode = "200", description = "Minimum values", content = @Content(schema = @Schema(implementation = List.class), examples = @ExampleObject(value = "[1,2]")))
   @ApiResponse(responseCode = "400", description = "Bad data found", content = @Content)
   @ApiResponse(responseCode = "500", description = "Internal server error.", content = @Content)
@@ -38,7 +40,7 @@ public class MathOperationController {
 
   @GetMapping(path = "/max")
   @ResponseStatus(value = HttpStatus.OK)
-  @Operation(summary = "Find maximum value based on quantifier")
+  @Operation(summary = "Find maximum values based on quantifier")
   @ApiResponse(responseCode = "200", description = "Maximum values", content = @Content(schema = @Schema(implementation = List.class), examples = @ExampleObject(value = "[1,2]")))
   @ApiResponse(responseCode = "400", description = "Bad data found", content = @Content)
   @ApiResponse(responseCode = "500", description = "Internal server error.", content = @Content)
@@ -60,7 +62,7 @@ public class MathOperationController {
 
   @GetMapping(path = "/average")
   @ResponseStatus(value = HttpStatus.OK)
-  @Operation(summary = "Find maximum value based on quantifier")
+  @Operation(summary = "Find average value")
   @ApiResponse(responseCode = "200", description = "Maximum values", content = @Content(schema = @Schema(implementation = List.class), examples = @ExampleObject(value = "[1,2]")))
   @ApiResponse(responseCode = "400", description = "Bad data found", content = @Content)
   @ApiResponse(responseCode = "500", description = "Internal server error.", content = @Content)
@@ -70,7 +72,7 @@ public class MathOperationController {
 
   @GetMapping(path = "/percentile")
   @ResponseStatus(value = HttpStatus.OK)
-  @Operation(summary = "Find maximum value based on quantifier")
+  @Operation(summary = "Find quantifiers percentile")
   @ApiResponse(responseCode = "200", description = "Maximum values", content = @Content(schema = @Schema(implementation = List.class), examples = @ExampleObject(value = "[1,2]")))
   @ApiResponse(responseCode = "400", description = "Bad data found", content = @Content)
   @ApiResponse(responseCode = "500", description = "Internal server error.", content = @Content)

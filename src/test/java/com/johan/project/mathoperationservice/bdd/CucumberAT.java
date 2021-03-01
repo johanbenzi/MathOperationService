@@ -7,5 +7,5 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(features = "src/test/resources/features", glue = {
   "com.johan.project.mathoperationservice.bdd.steps" })
-public class CucumberIT {
+public class CucumberAT {
 }
